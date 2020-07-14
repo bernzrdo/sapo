@@ -1,0 +1,282 @@
+
+/* --- FONT --- */
+
+@font-face {
+    font-family: Whitney;
+    font-weight: 400;
+    src: url(assets/Whitney400.woff) format("woff")
+}
+
+@font-face{
+    font-family: Whitney;
+    font-weight: 500;
+    src: url(assets/Whitney500.woff) format("woff")
+}
+
+@font-face {
+    font-family: Whitney;
+    font-weight: 700;
+    src: url(assets/Whitney700.woff) format("woff")
+}
+
+/* --- MAIN --- */
+
+body {
+    margin: 0;
+    font-family: 'Whitney', sans-serif;
+    background-color: #2c2f33;
+    color: #fff;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+
+a {
+    color: #00b0f4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+video {
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+}
+
+video:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0,0,0,.5);
+}
+
+h1, p {
+    margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+
+@media only screen and (max-width: 840px) {
+
+    .chat {
+        width: 100% !important;
+    }
+
+}
+
+@media only screen and (max-width: 670px) {
+
+    #index {
+        display: none;
+    }
+
+    #content {
+        margin-left: 25px !important;
+    }
+
+}
+
+/* --- HEADER --- */
+
+#header {
+    position: fixed;
+    width: calc(100% - 60px);
+    padding: 15px 30px;
+    box-shadow: 0 0 25px rgba(0,0,0,.5);
+    background-color: #2c2f33;
+    z-index: 999;
+}
+
+#logo img {
+    border-radius: 50%;
+    height: 1.5em;
+    margin-right: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+}
+
+#logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#discriminator {
+    font-weight: normal;
+    opacity: .5;
+    font-size: .5em;
+}
+
+/* --- INDEX --- */
+
+#index {
+    position: fixed;
+    margin: 0 25px;
+    padding: 25px 0;
+    width: 270px;
+    overflow: auto;
+}
+
+#index span {
+    display: inline-block;
+    padding: 5px 10px;
+    width: 250px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+#index span:hover {
+    background-color: #4f545c29;
+}
+
+/* --- CONTENT --- */
+
+#content {
+    margin-left: 320px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+.command {
+    margin: 25px 0;
+}
+
+.chat {
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    border: 1px solid #fff1;
+    margin: 15px 0;
+    width: 500px;
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+
+[message] {
+    position: relative;
+    min-height: 40px;
+    margin: 5px 0;
+    padding: 10px 25px;
+    transition: background-color .3s;
+}
+
+[message]:hover {
+    background-color: #23272a;
+    border-radius: 3px;
+}
+
+[message][deleted] {
+    opacity: .5;
+}
+
+[message][deleted]::before {
+    position: absolute;
+    content: '';
+    height: 40px;
+    width: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(assets/deleted.svg);
+    background-size: contain;
+    transition: filter .5s, opacity .5s;
+}
+
+[message][deleted]:hover::before {
+    opacity: 0;
+}
+
+[message][deleted] * {
+    filter: blur(5px);
+    transition: filter .5s;
+}
+
+[message][deleted]:hover * {
+    filter: blur(0);
+}
+
+[message] > img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50% !important;
+    margin-right: 15px;
+    float: left;
+}
+
+[message][deleted] > img {
+    filter: grayscale(.75) blur(5px);
+}
+
+[message][deleted]:hover > img {
+    filter: grayscale(.75) blur(0);
+}
+
+[message] > span:nth-child(2) {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+[message] > span:nth-child(2):hover {
+    text-decoration: underline;
+}
+
+[message] img {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bot {
+    background-color: #7289da;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: .6em;
+    margin-left: 5px;
+}
+
+.time {
+    opacity: .5;
+    font-size: .75em;
+    margin-left: 5px;
+}
+
+.mention {
+    color: #7289da;
+    background-color: #7289da1a;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.mention:hover {
+    color: #fff;
+    background-color: #7289da;
+}
+
+#toggleSecret {
+    font-size: .8em;
+    opacity: .5;
+    font-style: italic; 
+    cursor: pointer;
+}
+
+#toggleSecret:hover {
+    text-decoration: underline;
+}
+
+#secret {
+    display: none;
+}
