@@ -1,6 +1,6 @@
+var fakeUsers = [];
 $(()=>{
 
-    var fakeUsers = [];
     var h1pos = {};
 
     Array.prototype.random = function(){
